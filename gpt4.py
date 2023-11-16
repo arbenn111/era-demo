@@ -1,4 +1,3 @@
-import g4f
 import openai 
 from ToolGPT import ChatGPTWithFunctions
 import inspect
@@ -159,24 +158,6 @@ st.markdown("""
 #st.sidebar.markdown('<p style="text-align: center;"><strong>I Listen</strong></p>', unsafe_allow_html=True)
 st.sidebar.markdown('<p style="text-align: center; font-size: 40px; font-weight: bold;">I Listen</p>', unsafe_allow_html=True)
 
-def chatbot_4(prompt):
-    response = g4f.ChatCompletion.create(
-        model=g4f.models.gpt_4_0613,
-        provider=g4f.Provider.DeepAi,
-        messages=[
-            {"role": "system", "content": "You are a helpful bank assistant."},
-            {"role": "user", "content": prompt}
-        ],
-        #function=fun_dict(function),
-        temperature=0.6,
-        max_tokens=4000,
-        top_p=0.7,
-        n=3,
-        frequency_penalty=0.6,
-        presence_penalty=0.8,
-        stop=["PMT"]
-    )
-    return response
 
 emoji_list = ['😢','😟', '😐', '🙂', '🤩']
 columns = st.sidebar.columns(len(emoji_list))
@@ -215,7 +196,7 @@ def chat_with_history(history, user_input,info_to_learn,emo_learn):
     
     # Get bot response
     try:
-        bot_response = chatbot_4(prompt)
+        bot_response = pffff(prompt)
     except:
         bot_response = pffff(prompt)
     #bot_response = pffff(prompt)
